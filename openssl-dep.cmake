@@ -1,3 +1,8 @@
+# openssl-dep <https://github.com/tina-project/openssl-dep>
+# A CMake module that downloads OpenSSL source code & compiles it with your project.
+#
+# Check the README & the LICENSE file under the project for details.
+
 if(NOT UNIX)
     message(FATAL "This module can only be run on a unix-like system.")
 endif()

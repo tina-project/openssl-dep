@@ -44,3 +44,7 @@ target_link_libraries(your_target
     ${OPENSSL_DEP_LIBSSL_PATH}
 )
 ```
+
+## LICENSE
+
+This module is open-sourced under the [MIT License](./LICENSE).
