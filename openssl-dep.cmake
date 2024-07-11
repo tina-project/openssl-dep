@@ -1,3 +1,7 @@
+if(NOT UNIX)
+    message(FATAL "This script can only be run on a unix-like system.")
+endif()
+
 message(STATUS "Fetching OpenSSL Package...")
 
 if(NOT DEFINED OPENSSL_DEP_NOT_USE_OPENSSL3)
