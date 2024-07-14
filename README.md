@@ -1,24 +1,16 @@
 # openssl-dep
 
-openssl-dep is a CMake module that downloads OpenSSL source code & compiles it with your project. For now it only plans to work on Unix-like OSs.
+openssl-dep is a CMake module that adds OpenSSL v3 dependency to your project.
 
 ## How to Use:
 
-It uses OpenSSL `3.3.1` by default. If you want to use previous vesions of OpenSSL, you should define this in your `CMakeLists.txt`:
-
-```cmake
-set(OPENSSL_DEP_NOT_USE_OPENSSL3 ON)
-```
-
-It will download OpenSSL `1.1.1w`.
-
-And then:
+It uses OpenSSL `3.3.1`. Include this module in your project with:
 
 ```cmake
 include(/path/to/openssl-dep.cmake)
 ```
 
-openssl-dep configures OpenSSL on CMake configuration with the following parameters:
+On Unix-like OSs, openssl-dep configures OpenSSL on CMake configuration with the following parameters:
 
 ```
 no-apps
@@ -44,6 +36,14 @@ target_link_libraries(your_target
     ${OPENSSL_DEP_LIBSSL_PATH}
 )
 ```
+
+On Windows, a pre-compiled binary package is provided [here](./bin/OpenSSL-3.3.1-MinGW_W64.zip). The configuration command is:
+
+```sh
+./Configuration mingw64 no-apps no-docs no-tests --prefix=/openssl/3.3.1
+```
+
+It will directly extract the compiled binary package to `_deps/` directory. You can use the headers & the libraries just like how you do by Unix-like Oss.
 
 ## LICENSE
 
